@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { OrderService } from "./order.servive";
 
 const createOrder = async (req: Request, res: Response) => {
-  const productData = req.body;
   const result = await OrderService.createOrder(req.body);
   res.json({
     success: true,
@@ -18,7 +17,7 @@ const getAllOrder = async (req: Request, res: Response) => {
       message: "Order retrieved successfully!",
       data: result,
     });
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({
       success: false,
       message: "Error fetching products",

@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { ProductService } from "./product.servive";
 
 const createProduct = async (req: Request, res: Response) => {
-  const productData = req.body;
   const result = await ProductService.createProduct(req.body);
   res.json({
     success: true,
@@ -18,7 +17,7 @@ const getAllProducts = async (req: Request, res: Response) => {
       message: "Products retrieved successfully!",
       data: result,
     });
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({
       success: false,
       message: "Error fetching products",
@@ -42,8 +41,8 @@ const getSingleProduct = async (req: Request, res: Response) => {
       message: "Product retrieved successfully!",
       data: result,
     });
-  } catch (error: any) {
-    console.error("Error fetching product:", error);
+  } catch (error) {
+    console.error(error);
     res.status(500).json({
       success: false,
       message: "Error fetching product",
