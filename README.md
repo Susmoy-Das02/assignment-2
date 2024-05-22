@@ -2,8 +2,9 @@
 
 # Prerequisites
 
-Node.js installed on your machine
-npm or yarn installed on your machine
+# Node.js installed on your machine,
+
+# npm or yarn installed on your machine
 
 # git clone <https://github.com/Susmoy-Das02/assignment-2.git>
 
