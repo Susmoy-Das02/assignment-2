@@ -30,10 +30,28 @@ const deleteProduct = async (productId: string) => {
   return result;
 };
 
+const updateProduct = async (
+  productId: string,
+  updatedProductData: SProduct
+): Promise<SProduct | null> => {
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      updatedProductData,
+      { new: true }
+    );
+
+    return updatedProduct;
+  } catch (error) {
+    throw new Error("Error updating product: " + error);
+  }
+};
+
 export const ProductService = {
   createProduct,
   getAllProducts,
   getSingleProduct,
   searchProducts,
   deleteProduct,
+  updateProduct,
 };
