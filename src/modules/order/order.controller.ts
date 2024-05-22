@@ -27,7 +27,29 @@ const getAllOrder = async (req: Request, res: Response) => {
   }
 };
 
+const getOrdersByEmail = async (req: Request, res: Response) => {
+  try {
+    const email = req.query.email as string;
+
+    const orders = await OrderService.getOrdersByEmail(email);
+
+    res.status(200).json({
+      success: true,
+      message: "Orders retrieved successfully",
+      data: orders,
+    });
+  } catch (error) {
+    console.error("Error retrieving orders by email:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error retrieving orders by email",
+      error: error,
+    });
+  }
+};
+
 export const OrderControllers = {
   createOrder,
   getAllOrder,
+  getOrdersByEmail,
 };
