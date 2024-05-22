@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductControllers = void 0;
 const product_servive_1 = require("./product.servive");
 const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const productData = req.body;
     const result = yield product_servive_1.ProductService.createProduct(req.body);
     res.json({
         success: true,
@@ -54,7 +53,7 @@ const getSingleProduct = (req, res) => __awaiter(void 0, void 0, void 0, functio
         });
     }
     catch (error) {
-        console.error("Error fetching product:", error);
+        console.error(error);
         res.status(500).json({
             success: false,
             message: "Error fetching product",

@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderControllers = void 0;
 const order_servive_1 = require("./order.servive");
 const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const productData = req.body;
     const result = yield order_servive_1.OrderService.createOrder(req.body);
     res.json({
         success: true,

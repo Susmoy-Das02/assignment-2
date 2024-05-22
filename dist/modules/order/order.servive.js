@@ -25,7 +25,6 @@ const getOrdersByEmail = (email) => __awaiter(void 0, void 0, void 0, function* 
         return orders;
     }
     catch (error) {
-        console.error("Error retrieving orders by email:", error);
         throw new Error("Error retrieving orders by email: " + error);
     }
 });
